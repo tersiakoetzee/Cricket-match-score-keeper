@@ -10,8 +10,6 @@ module.exports = function Cricket(oversmax) {
 
         for (i = 0; i < scorenow.length; i++) {
             let point = scorenow[i];
-            console.log(point);
-            console.log(score);
             
             if (perOver.length === 6) {
                 perOver++
