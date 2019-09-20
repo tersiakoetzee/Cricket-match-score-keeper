@@ -1,30 +1,33 @@
 module.exports = function Cricket(oversmax) {
-    let score = 0
-    let wicket = 0
+    let score = 0;
+    let wicket = 0;
     let perOver = 0;
 
 
-    function scoreTrack() {
+    function scoreTrack(currentScore) {
 
-        let cScore = "1-2-3-4-6-w"
-        let Tscore = cScore.split(" ")
+        let scorenow = currentScore.split("")
 
-        for (i = 0; i < Tscore.length; i++) {
-            let point = Tscore[i]
+        for (i = 0; i < scorenow.length; i++) {
+            let point = scorenow[i];
+            console.log(point);
+            console.log(score);
+            
             if (perOver.length === 6) {
                 perOver++
             }
             if(perOver.length === 36){
-                return oversmax
+                return oversmax;
             }
-            if (point !== 'w') {
+            if (point !== 'w'&& point !== '-') {
                 score += Number(point)
             }
+
             if (point === 'w') {
-                wicket = wicket + Number(point)
+                wicket = wicket + 1
             }
         }
-
+        return score;
     }
 
     function gameOver() {
@@ -39,12 +42,16 @@ module.exports = function Cricket(oversmax) {
       
 
     }
+    function totalScore(){
+        return score;
+    }
 
 
 
     return {
         scoreTrack,
-        gameOver
+        gameOver,
+        totalScore
 
     }
 

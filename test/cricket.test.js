@@ -8,7 +8,7 @@ describe('The cricket function', function () {
 
         cricketScore.scoreTrack('-2--2-')
 
-        assert.deepEqual(cricketScore.scoreTrack("4"));
+        assert.deepEqual(4, cricketScore.totalScore());
     })
 
     it(' should be able to get the score and add it to the total score for the game ', function () {
@@ -16,21 +16,22 @@ describe('The cricket function', function () {
 
        cricketScore.scoreTrack('----')
 
-        assert.deepEqual(cricketScore.scoreTrack(0));
+        assert.equal(0, cricketScore.totalScore());
     })
 
     it(' should be able to get the amount of wickets fallen ', function () {
         let cricketScore = Cricket()
-
+        
         cricketScore.scoreTrack('-2-4-3-')
 
-        assert.deepEqual(cricketScore.scoreTrack(9));
+        assert.equal(9,cricketScore.totalScore());
     })
 
     it(' should be able to stop the score when wickets have reached 10', function () {
         let cricketScore = Cricket()
 
+        cricketScore.totalScore('-w-w-w-w-w-w-w-w-w-w')
 
-        assert.deepEqual(cricketScore.gameOver(10));
+        assert.equal(10,cricketScore.gameOver());
     })
     });
