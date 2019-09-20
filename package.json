@@ -7,11 +7,12 @@
     "test": "test"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mocha": "^6.2.0"
   },
   "scripts": {
     "test": "mocha",
-    "mocha" : ".node_modules/bin/mocha",
+    "mocha": ".node_modules/bin/mocha",
     "start": "node index.js"
   },
   "repository": {
